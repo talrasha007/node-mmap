@@ -1,0 +1,28 @@
+{
+  "name": "node-mmap",
+  "version": "0.0.1",
+  "description": "A node mmap implementation.",
+  "main": "build/Release/node-mmap.node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node-gyp rebuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talrasha007/node-mmap.git"
+  },
+  "keywords": [
+    "mmap"
+  ],
+  "author": "Tal Rasha",
+  "license": "MIT",
+  "gypfile": true,
+  "bugs": {
+    "url": "https://github.com/talrasha007/node-mmap/issues"
+  },
+  "homepage": "https://github.com/talrasha007/node-mmap#readme",
+  "dependencies": {
+    "nan": "^2.6.2",
+    "nnu": "^0.1.7"
+  }
+}
