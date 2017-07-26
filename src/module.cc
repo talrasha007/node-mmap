@@ -8,9 +8,7 @@ void freeCb(char *data, void *hint) {
 }
 
 NAN_METHOD(sync) {
-    v8::Local<v8::Value> val = Nan::GetPrivate(info.This(), nnu::newString("MMapPtr")).ToLocalChecked();
-    MMap *ptr = (MMap *)v8::External::Cast(*val)->Value();
-    ptr->sync();
+    nnu::getPrivate<MMap*>(info.This(), "MMapPtr")->sync();
 }
 
 NAN_METHOD(map) {
@@ -22,7 +20,7 @@ NAN_METHOD(map) {
     if (**ptr) {
         v8::Local<v8::Object> buffer = Nan::NewBuffer(**ptr, length, freeCb, ptr).ToLocalChecked();
 
-        Nan::SetPrivate(buffer, nnu::newString("MMapPtr"), Nan::New<v8::External>(ptr));
+        nnu::setPrivate(buffer, "MMapPtr", ptr);
         Nan::SetMethod(buffer, "sync", sync);
 
         info.GetReturnValue().Set(buffer);
